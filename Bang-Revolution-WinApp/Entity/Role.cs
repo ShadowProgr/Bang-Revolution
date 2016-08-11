@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Entity
 {
-    public interface Role
+    public class Role
     {
-        int roleID { get; set; }
-        string roleName { get; set; }
-        string roleDesc { get; set; }
-        string img { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string desc { get; set; }
+        public string img { get; set; }
     }
 }
