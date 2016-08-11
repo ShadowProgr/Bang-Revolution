@@ -22,7 +22,9 @@ namespace DAL
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("Select * from Users", con);
+                SqlCommand com = new SqlCommand("Select * from Users WHERE Name = @name AND Pass = @pass", con);
+                com.Parameters.AddWithValue("@name", name);
+                com.Parameters.AddWithValue("@pass", pass);
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {

@@ -11,6 +11,5 @@ namespace Entity
         public DateTime date { get; set; }
         public List<Winner> winner { get; set; }
         public List<Loser> loser { get; set; }
-
     }
 }
