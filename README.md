@@ -1,6 +1,7 @@
 # Bang! Revolution
 
 ## ToDo List
+
 [ ] Create database
 [ ] Create WebApp
 [ ] Code game's logic
