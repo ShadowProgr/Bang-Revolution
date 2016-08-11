@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
+using DAL;
 
 namespace Gameplay
 {
@@ -11,11 +12,18 @@ namespace Gameplay
     {
 
         public List<Player> players = new List<Player>();
+        public List<Role> roles = new List<Role>();
 
         public void initGame(List<User> users)
         {
+            initData();
             assignRoles(users);
+        }
 
+        public void initData()
+        {
+            ConnectToDB dbAccess = new ConnectToDB();
+            roles = dbAccess.getRoles();
         }
 
         public void assignRoles(List<User> users)
@@ -95,6 +103,14 @@ namespace Gameplay
                     default:
                         return;
                 }
+            }
+        }
+
+        public void assignRoleToPlayer(Player player, int roleID)
+        {
+            foreach (Role role in roles)
+            {
+                if (role.id == roleID)
             }
         }
 

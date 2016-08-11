@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9eafe8f2-2972-4961-9394-bb27e05bccd8}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{f6008cc8-3fc8-49d5-9ae9-221586b5a840}</Project>
       <Name>Entity</Name>
