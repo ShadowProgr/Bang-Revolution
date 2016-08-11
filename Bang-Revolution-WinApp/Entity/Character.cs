@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Entity
 {
-    class Character
+    public class Character
     {
         public int id { get; set; }
         public string name { get; set; }
+        public string desc { get; set; }
         public int skillID { get; set; }
         public int hp { get; set; }
         public string img { get; set; }
         public double price { get; set; }
-
     }
 }

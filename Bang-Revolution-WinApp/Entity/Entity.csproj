@@ -38,8 +38,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlueCard.cs" />
-    <Compile Include="BrownCard.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Item.cs" />
