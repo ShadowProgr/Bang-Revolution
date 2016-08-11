@@ -17,7 +17,7 @@ namespace Gameplay
         public void initGame(List<User> users)
         {
             initData();
-            assignRoles(users);
+            initPlayers(users);
         }
 
         public void initData()
@@ -26,7 +26,7 @@ namespace Gameplay
             roles = dbAccess.getRoles();
         }
 
-        public void assignRoles(List<User> users)
+        public void initPlayers(List<User> users)
         {
             int noOfPlayers = users.Count;
             int sheriffCount;
@@ -106,12 +106,19 @@ namespace Gameplay
             }
         }
 
-        public void assignRoleToPlayer(Player player, int roleID)
+        public Player initOnePlayer(User user, int roleID)
         {
+            Player player = new Player();
+            player.ownCard = new List<Card>();
             foreach (Role role in roles)
             {
                 if (role.id == roleID)
+                {
+                    player.role = role;
+                }
             }
+
+            return player;
         }
 
         public void cardBang(Player shooter, Player receiver)
