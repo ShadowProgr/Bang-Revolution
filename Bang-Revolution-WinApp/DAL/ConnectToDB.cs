@@ -80,13 +80,14 @@ namespace DAL
             return roles;
         }
 
-        public List<Character> getChar()
+        public List<Character> getChar(int userID)
         {
             List<Character> character = new List<Character>();
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("Select * from Roles", con);
+                SqlCommand com = new SqlCommand("SELECT * FROM CharacterPuchase CP join Characters C on CP.[Char ID] = C.ID WHERE CP.[User ID] = @id", con);
+                com.Parameters.AddWithValue("@id", userID);
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
