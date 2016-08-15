@@ -154,5 +154,28 @@ namespace DAL
             return card;
         }
 
+        public void addUser(string name, string pass, string email)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("INSERT INTO Users (Name, Pass, Email) VALUES (@name, @pass, @email) ", con);
+                com.Parameters.AddWithValue("@name", name);
+                com.Parameters.AddWithValue("@pass", pass);
+                com.Parameters.AddWithValue("@email", email);
+                com.ExecuteNonQuery();                             
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+        }
     }
 }
