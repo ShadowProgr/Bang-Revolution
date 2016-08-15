@@ -25,6 +25,7 @@ namespace Clients
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Send data to server
             String uname = textBox1.Text;
             int uid = int.Parse(textBox2.Text);
             bool uskilled = false;
@@ -42,7 +43,7 @@ namespace Clients
             byte[] outStream = ms.ToArray();
             serverStream.Write(outStream, 0, outStream.Length);
             serverStream.Flush();
-
+            //Read data from server
             byte[] inStream = new byte[10025];
             serverStream.Read(inStream, 0, inStream.Length);
             string returndata = System.Text.Encoding.ASCII.GetString(inStream);

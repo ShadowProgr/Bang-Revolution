@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using TestClass;
+using Bang_Revolution_WebApp;
 
 namespace ConsoleApplication1
 {
@@ -68,10 +68,32 @@ namespace ConsoleApplication1
                     ms.Write(bytesFrom, 0, bytesFrom.Length);
                     ms.Seek(0, SeekOrigin.Begin);
                     Object obj = (Object) bf.Deserialize(ms);
-                    TestObj to = (TestObj)obj;
-
-                    serverResponse = "Server to client(" + clNo + ") " + rCount;
-                    sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                    User user = (User)obj;
+                    if (user.checkLogin == true)
+                    {
+                        if (user.name.Equals("admin") && user.pass.Equals("admin"))
+                        {
+                            serverResponse = "Welcome";
+                            sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                        }
+                        else
+                        {
+                            serverResponse = "Wrong user account or password, please input again";
+                            sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                        }
+                        
+                    } else
+                    {
+                        if (user.name.Equals("admin"))
+                        {
+                            serverResponse = "The username has exist";
+                            sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                        } else
+                        {
+                            serverResponse = "Welcome";
+                            sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                        }
+                    }
                     networkStream.Write(sendBytes, 0, sendBytes.Length);
                     networkStream.Flush();
                     Console.WriteLine(" >> " + serverResponse);

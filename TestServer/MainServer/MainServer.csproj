@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bang-Revolution-WebApp\Bang-Revolution-WebApp\Bang-Revolution-WebApp.csproj">
+      <Project>{6c4cb791-79c0-46f0-bb37-2f1f0ffa00d0}</Project>
+      <Name>Bang-Revolution-WebApp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestClass\TestClass.csproj">
       <Project>{3f24652d-e35d-43a1-81d4-3fb5399cfb7d}</Project>
       <Name>TestClass</Name>
