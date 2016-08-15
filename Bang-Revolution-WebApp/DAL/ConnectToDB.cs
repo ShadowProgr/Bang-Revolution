@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Configuration;
-using Entity;
+using UserData;
 
 namespace DAL
 {
-    public class ConnectToDB
+    public class ConnectToDB 
     {
         SqlConnection con = null;
         public ConnectToDB()
@@ -16,7 +17,6 @@ namespace DAL
             string str = ConfigurationSettings.AppSettings["connectionString"];
             con = new SqlConnection(str);
         }
-
         public bool checkLogin(string name, string pass)
         {
             bool check = false;
@@ -45,25 +45,18 @@ namespace DAL
             }
             return check;
         }
-
-        public List<Role> getRoles()
+        public bool checkRegis(string name)
         {
-            List<Role> roles = new List<Role>();
+            bool check = false;
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("Select * from Roles", con);
+                SqlCommand com = new SqlCommand("Select * from Users WHERE Name = @name", con);
+                com.Parameters.AddWithValue("@name", name);
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Role r = new Role()
-                    {
-                        id = (int)reader["ID"],
-                        desc = reader["[Desc]"].ToString(),
-                        img = reader["Img"].ToString(),
-                        name = reader["Name"].ToString()
-                    };
-                    roles.Add(r);
+                    check = true;
                 }
             }
             catch (SqlException se)
@@ -77,93 +70,18 @@ namespace DAL
                     con.Close();
                 }
             }
-            return roles;
+            return check;
         }
-
-        public List<Character> getChars(int userID)
-        {
-            List<Character> character = new List<Character>();
-            try
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("SELECT * FROM CharacterPuchase CP join Characters C on CP.[Char ID] = C.ID WHERE CP.[User ID] = @id", con);
-                com.Parameters.AddWithValue("@id", userID);
-                SqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Character c = new Character()
-                    {
-                        id = (int)reader["ID"],
-                        desc = reader["[Desc]"].ToString(),
-                        img = reader["Img"].ToString(),
-                        name = reader["Name"].ToString(),
-                        hp = (int) reader["HP"],
-                        price = (float) reader["Price"],
-                        skillID = (int) reader["SkillID"]
-                    };
-                    character.Add(c);
-                }
-            }
-            catch (SqlException se)
-            {
-                Console.WriteLine(se.Message);
-            }
-            finally
-            {
-                if (con.State != System.Data.ConnectionState.Closed)
-                {
-                    con.Close();
-                }
-            }
-            return character;
-        }
-
-        public List<Card> getCards()
-        {
-            List<Card> card = new List<Card>();
-            try
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("Select * from Roles", con);
-                SqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Card c = new Card()
-                    {
-                        id = (int)reader["ID"],
-                        img = reader["Img"].ToString(),
-                        name = reader["Name"].ToString(),
-                        effectID = (int) reader["EffectID"],
-                        range = (int)reader["Range"],
-                        suit = (int) reader["Suit"]
-                    };
-                    card.Add(c);
-                }
-            }
-            catch (SqlException se)
-            {
-                Console.WriteLine(se.Message);
-            }
-            finally
-            {
-                if (con.State != System.Data.ConnectionState.Closed)
-                {
-                    con.Close();
-                }
-            }
-            return card;
-        }
-
         public void addUser(string name, string pass, string email)
         {
             try
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("INSERT INTO Users (Name, Pass, Email) VALUES (@name, @pass, @email) ", con);
-                com.Parameters.AddWithValue("@name", name);
-                com.Parameters.AddWithValue("@pass", pass);
-                com.Parameters.AddWithValue("@email", email);
-                com.ExecuteNonQuery();                             
+                SqlCommand com = new SqlCommand("Insert Into Users (Name, Pass, Email) Values (@Name, @Pass, @Email)", con);
+                com.Parameters.AddWithValue("@Name", name);
+                com.Parameters.AddWithValue("@Pass", pass);
+                com.Parameters.AddWithValue("@Email", email);
+                com.ExecuteNonQuery();
             }
             catch (SqlException se)
             {
@@ -176,6 +94,94 @@ namespace DAL
                     con.Close();
                 }
             }
+        }
+        public int getUserID(string name)
+        {
+            int id = 0;
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("Select * from Users WHERE Name = @name", con);
+                com.Parameters.AddWithValue("@name", name);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    id = (int)reader["ID"];
+                }
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+            return id;
+        }
+        public void addUserData(int id)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("Insert Into UserData ([User ID], Exp, Win, Lose, Rate, Money) Values (@UserID, @Exp, @Win, @Lose, @Rate, @Money)", con);
+                com.Parameters.AddWithValue("@UserID", id);
+                com.Parameters.AddWithValue("@Exp", 0);
+                com.Parameters.AddWithValue("@Win", 0);
+                com.Parameters.AddWithValue("@Lose", 0);
+                com.Parameters.AddWithValue("@Rate", 0);
+                com.Parameters.AddWithValue("@Money", 0);
+                com.ExecuteNonQuery();
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public UData getUserData(int id)
+        {
+            UData ud = new UData();
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("Select * from UserData WHERE [User ID] = @ID", con);
+                com.Parameters.AddWithValue("@ID", id);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    ud = new UData()
+                    {
+                        id = (int)reader["User ID"],
+                        exp = long.Parse(reader["Exp"].ToString()),
+                        win = long.Parse(reader["Win"].ToString()),
+                        lose = long.Parse(reader["Lose"].ToString()),
+                        rate = float.Parse(reader["Rate"].ToString()),
+                        money = long.Parse(reader["Money"].ToString())
+                    };
+                }
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+            return ud;
         }
     }
 }
