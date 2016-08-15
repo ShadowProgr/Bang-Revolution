@@ -12,11 +12,9 @@ namespace Bang_Revolution_WebApp
 {
     public partial class Login : System.Web.UI.Page
     {
-        System.Net.Sockets.TcpClient clientSocket;
         protected void Page_Load(object sender, EventArgs e)
         {
-            clientSocket = new System.Net.Sockets.TcpClient();
-            clientSocket.Connect("10.22.161.139", 8888);
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -24,32 +22,11 @@ namespace Bang_Revolution_WebApp
             //Send data to server
             string username = txtName.Text;
             string password = txtPass.Text;
-            bool checkL = true;
             User user = new User()
             {
                 name = username,
                 pass = password,
-                checkLogin = checkL
             };
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, user);
-            NetworkStream serverStream = clientSocket.GetStream();
-            byte[] outStream = ms.ToArray();
-            serverStream.Write(outStream, 0, outStream.Length);
-            serverStream.Flush();
-            //Read data from server
-            byte[] inStream = new byte[10025];
-            serverStream.Read(inStream, 0, inStream.Length);
-            string returndata = System.Text.Encoding.ASCII.GetString(inStream);
-            if (returndata.Contains("Welcome"))
-            {
-                Response.Redirect("Profile.aspx?name=" + username);
-            }
-            else
-            {
-                Response.Write("<script> alert('Wrong username or password, please input again'); </script>");
-            }
         }
 
         protected void btnRegis_Click(object sender, EventArgs e)
@@ -57,33 +34,11 @@ namespace Bang_Revolution_WebApp
 
             string username = txtName.Text;
             string password = txtPass.Text;
-            bool checkL = false;
             User user = new User()
             {
                 name = username,
                 pass = password,
-                checkLogin = checkL
             };
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, user);
-            NetworkStream serverStream = clientSocket.GetStream();
-            byte[] outStream = ms.ToArray();
-            serverStream.Write(outStream, 0, outStream.Length);
-            serverStream.Flush();
-            //Read data from server
-            byte[] inStream = new byte[10025];
-            serverStream.Read(inStream, 0, inStream.Length);
-            string returndata = System.Text.Encoding.ASCII.GetString(inStream);
-            if (returndata.Contains("Welcome"))
-            {
-                Response.Write("<script> aler('Congratulaion, your account have been successfully created'); </scipt>");
-                Response.Redirect("Profile.aspx?name=" + username);
-            }
-            else
-            {
-                Response.Write("<script> alert('The username is existed, please select another username'); </script>");
-            }
         }
     }
 }
