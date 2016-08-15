@@ -117,18 +117,7 @@ namespace Gameplay
                     player.role = role;
                 }
             }
-
             return player;
         }
-
-        public void cardBang(Player shooter, Player receiver)
-        {
-
-        }
-
-        public void takeDamage(Player victim, int damage)
-        {
-            
-        } 
     }
 }
