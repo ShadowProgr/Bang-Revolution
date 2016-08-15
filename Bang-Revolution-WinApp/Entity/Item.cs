@@ -11,6 +11,6 @@ namespace Entity
         public string name { get; set; }
         public double price { get; set; }
         public string img { get; set; }
-        public bool isBackground { get; set; }
+        public bool isBackground { get; set; } //1 is background, 0 is back card
     }
 }
