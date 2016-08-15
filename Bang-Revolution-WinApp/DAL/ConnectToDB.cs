@@ -80,7 +80,7 @@ namespace DAL
             return roles;
         }
 
-        public List<Character> getChar(int userID)
+        public List<Character> getChars(int userID)
         {
             List<Character> character = new List<Character>();
             try
@@ -118,7 +118,7 @@ namespace DAL
             return character;
         }
 
-        public List<Card> getCard()
+        public List<Card> getCards()
         {
             List<Card> card = new List<Card>();
             try
