@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Bang_Revolution_WebApp
 {
-    public partial class Profile : System.Web.UI.Page
+    public partial class Shop : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,17 +16,17 @@ namespace Bang_Revolution_WebApp
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profile.aspx?username=" + Request["username"]);
+            Response.Redirect("Profile.aspx?name=" + Request["name"]);
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Shop.aspx?username=" + Request["username"]);
+            Response.Redirect("Shop.aspx?name=" + Request["name"]);
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Login.aspx?");
         }
     }
 }

@@ -16,17 +16,27 @@ namespace Bang_Revolution_WebApp
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profile.aspx?name=" + Request["name"]);
+            Response.Redirect("Profile.aspx?username=" + Request["username"]);
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Shop.aspx?name=" + Request["name"]);
+            Response.Redirect("Shop.aspx?username=" + Request["username"]);
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx?");
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void Items_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ItemShop.aspx?username=" + Request["username"]);
+        }
+
+        protected void Characters_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CharacterShop.aspx?username=" + Request["username"]);
         }
     }
 }

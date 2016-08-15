@@ -15,8 +15,7 @@
                 <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Logout</asp:LinkButton>
             </div>
             <div>
-                <asp:LinkButton ID="Items" runat="server" OnClick="Items_Click">Item's Shop</asp:LinkButton>
-                <asp:LinkButton ID="Characters" runat="server" OnClick="Characters_Click">Character's Shop</asp:LinkButton>
+               
             </div>
         </div>
     </form>

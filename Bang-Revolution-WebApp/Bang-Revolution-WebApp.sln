@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang-Revolution-WebApp", "Bang-Revolution-WebApp\Bang-Revolution-WebApp.csproj", "{6C4CB791-79C0-46F0-BB37-2F1F0FFA00D0}"
-EndProject
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{DEDB2741-4239-412F-8C91-B5D10AEE424C}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainServer", "..\TestServer\MainServer\MainServer.csproj", "{BE0AC133-0E80-46D6-8741-439D6C16F102}"
->>>>>>> refs/remotes/origin/master
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang-Revolution-WebApp", "Bang-Revolution-WebApp\Bang-Revolution-WebApp.csproj", "{7EF79079-89F2-4482-B710-F01D13F17DCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserData", "UserData\UserData.csproj", "{91BF696D-13E1-4F2F-8354-86894B5905C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,21 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C4CB791-79C0-46F0-BB37-2F1F0FFA00D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C4CB791-79C0-46F0-BB37-2F1F0FFA00D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C4CB791-79C0-46F0-BB37-2F1F0FFA00D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C4CB791-79C0-46F0-BB37-2F1F0FFA00D0}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{DEDB2741-4239-412F-8C91-B5D10AEE424C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEDB2741-4239-412F-8C91-B5D10AEE424C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEDB2741-4239-412F-8C91-B5D10AEE424C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEDB2741-4239-412F-8C91-B5D10AEE424C}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{BE0AC133-0E80-46D6-8741-439D6C16F102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE0AC133-0E80-46D6-8741-439D6C16F102}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE0AC133-0E80-46D6-8741-439D6C16F102}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE0AC133-0E80-46D6-8741-439D6C16F102}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> refs/remotes/origin/master
+		{7EF79079-89F2-4482-B710-F01D13F17DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF79079-89F2-4482-B710-F01D13F17DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF79079-89F2-4482-B710-F01D13F17DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF79079-89F2-4482-B710-F01D13F17DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91BF696D-13E1-4F2F-8354-86894B5905C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BF696D-13E1-4F2F-8354-86894B5905C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BF696D-13E1-4F2F-8354-86894B5905C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BF696D-13E1-4F2F-8354-86894B5905C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

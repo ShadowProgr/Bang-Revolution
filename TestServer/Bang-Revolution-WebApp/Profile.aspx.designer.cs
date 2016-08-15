@@ -10,7 +10,7 @@
 namespace Bang_Revolution_WebApp {
     
     
-    public partial class Shop {
+    public partial class Profile {
         
         /// <summary>
         /// form1 control.
@@ -49,21 +49,21 @@ namespace Bang_Revolution_WebApp {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
         
         /// <summary>
-        /// Items control.
+        /// itemGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Items;
+        protected global::System.Web.UI.WebControls.GridView itemGrid;
         
         /// <summary>
-        /// Characters control.
+        /// characterGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Characters;
+        protected global::System.Web.UI.WebControls.GridView characterGrid;
     }
 }
