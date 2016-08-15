@@ -9,19 +9,19 @@ namespace Gameplay
 {
     public static class BasicOperations
     {
-        public static void drawCard(Player player, List<Card> currentCard)
+        public static void drawCard(Player player, List<Card> deck)
         {
-            player.ownCard.Add(currentCard[0]);
-            currentCard.RemoveAt(0);
+            player.cardsOnHand.Add(deck[0]);
+            deck.RemoveAt(0);
         }
 
         public static void drawFromRemoveCard(Player player, List<Card> removeCard)
         {
-            player.ownCard.Add(removeCard[0]);
+            player.cardsOnHand.Add(removeCard[0]);
             removeCard.RemoveAt(0);
         }
 
-        public static List<Card> shuffleCard(List<Card> shuffle)
+        public static List<Card> shuffleCards(List<Card> shuffle)
         {
             List<Card> newList = new List<Card>();
             List<int> check = new List<int>();
@@ -50,13 +50,13 @@ namespace Gameplay
         public static void removeCard(List<Card> removeCard, Player player, Card card)
         {
             removeCard.Add(card);
-            player.ownCard.Remove(card);
+            player.cardsOnHand.Remove(card);
         }
 
         public static void drawFromAnother(Player actor, Player receiver, Card card)
         {
-            actor.ownCard.Add(card);
-            receiver.ownCard.Remove(card);
+            actor.cardsOnHand.Add(card);
+            receiver.cardsOnHand.Remove(card);
         }
 
         public static void equipCard(Player actor, Player receiver, Card card)
@@ -89,7 +89,7 @@ namespace Gameplay
                 unequipCard(receiver, c);
             }
             receiver.currentEquip.Add(card);
-            actor.ownCard.Remove(card);
+            actor.cardsOnHand.Remove(card);
             
         }
 
