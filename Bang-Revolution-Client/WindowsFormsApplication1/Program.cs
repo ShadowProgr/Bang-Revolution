@@ -4,11 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bang_Revolution_Client
+namespace WindowsFormsApplication1
 {
-    public static class Program
+    static class Program
     {
-        public static bool loggedIn = false;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,11 +16,7 @@ namespace Bang_Revolution_Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (!loggedIn)
-            {
-                Application.Run(new frmLogin());
-            }
-            Console.WriteLine(loggedIn);
+            Application.Run(new Form1());
         }
     }
 }
