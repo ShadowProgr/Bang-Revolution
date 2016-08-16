@@ -80,9 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UserData\UserData.csproj">
-      <Project>{4fd3c137-b222-4ef9-bec0-31b6c307717f}</Project>
-      <Name>UserData</Name>
+    <ProjectReference Include="..\..\Bang-Revolution-WinApp\Entity\Entity.csproj">
+      <Project>{f6008cc8-3fc8-49d5-9ae9-221586b5a840}</Project>
+      <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

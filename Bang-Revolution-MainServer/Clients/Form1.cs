@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,16 +9,20 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UserData;
+
 
 namespace Clients
 {
     public partial class Form1 : Form
     {
+        BinaryFormatter bf = new BinaryFormatter();
+        MemoryStream ms = new MemoryStream();
+        string readData = null;
+        NetworkStream serverStream = default(NetworkStream);
         System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
-        NetworkStream serverStream;
         public Form1()
         {
             InitializeComponent();
@@ -26,40 +31,50 @@ namespace Clients
         private void button1_Click(object sender, EventArgs e)
         {
             //Send data to server
-            string uname = textBox1.Text;
-            string password = textBox2.Text;
-            string emails = "asd@asd.com";
-            User us = new User()
-            {
-                id = 1,
-                name = uname,
-                pass = password,
-                email = emails
-            };
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, us);
-            NetworkStream serverStream = clientSocket.GetStream();
-            byte[] outStream = ms.ToArray();
+            
+            byte[] outStream = System.Text.Encoding.ASCII.GetBytes(txtChat.Text + "$");
             serverStream.Write(outStream, 0, outStream.Length);
             serverStream.Flush();
-            //Read data from server
-            byte[] inStream = new byte[10025];
-            serverStream.Read(inStream, 0, inStream.Length);
-            string returndata = System.Text.Encoding.ASCII.GetString(inStream);
-            msg("Data from Server : " + returndata);
-            label4.Text = returndata;
+            txtChat.Text = "";
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            readData = "Conected to Chat Server ...";
+            msg();
+            clientSocket.Connect("185.7.80.50", 8888);
+            serverStream = clientSocket.GetStream();
 
+            byte[] outStream = System.Text.Encoding.ASCII.GetBytes(txtName.Text + "$");
+            serverStream.Write(outStream, 0, outStream.Length);
+            serverStream.Flush();
+
+            Thread ctThread = new Thread(getMessage);
+            ctThread.Start();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            msg("Client Started");
-            clientSocket.Connect("192.168.120.170", 8888);
-            label1.Text = "Client Socket Program - Server Connected ...";
         }
-        public void msg(string mesg)
+        private void msg()
         {
-            textBox1.Text = textBox1.Text + Environment.NewLine + " >> " + mesg;
+            if (this.InvokeRequired)
+                this.Invoke(new MethodInvoker(msg));
+            else
+                txtBox.Text += Environment.NewLine + " >> " + readData;
         }
+
+
+        private void getMessage()
+        {
+            while (true)
+            {
+                serverStream = clientSocket.GetStream();
+                byte[] inStream = new byte[10025];
+                serverStream.Read(inStream, 0, inStream.Length);
+                string returndata = System.Text.Encoding.ASCII.GetString(inStream);
+                readData = "" + returndata;
+                msg();
+            }
+        }
+       
     }
 }
