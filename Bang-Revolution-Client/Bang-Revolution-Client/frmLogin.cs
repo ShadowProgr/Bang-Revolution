@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entity;
 
 namespace Bang_Revolution_Client
 {
@@ -22,6 +23,7 @@ namespace Bang_Revolution_Client
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+
             // Send login info to server and wait for reply
             if (true) // If login succeeded
             {
