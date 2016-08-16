@@ -34,11 +34,12 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lnkRegister = new System.Windows.Forms.LinkLabel();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(12, 64);
+            this.btnLogin.Location = new System.Drawing.Point(12, 102);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(258, 23);
             this.btnLogin.TabIndex = 0;
@@ -83,7 +84,7 @@
             // 
             // lnkRegister
             // 
-            this.lnkRegister.Location = new System.Drawing.Point(12, 90);
+            this.lnkRegister.Location = new System.Drawing.Point(12, 128);
             this.lnkRegister.Name = "lnkRegister";
             this.lnkRegister.Size = new System.Drawing.Size(258, 23);
             this.lnkRegister.TabIndex = 5;
@@ -92,11 +93,23 @@
             this.lnkRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lnkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegister_LinkClicked);
             // 
+            // lblMessage
+            // 
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(15, 61);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblMessage.Size = new System.Drawing.Size(255, 38);
+            this.lblMessage.TabIndex = 6;
+            this.lblMessage.Text = "Message";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 123);
+            this.ClientSize = new System.Drawing.Size(282, 160);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lnkRegister);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtPassword);
@@ -122,5 +135,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel lnkRegister;
+        private System.Windows.Forms.Label lblMessage;
     }
 }
