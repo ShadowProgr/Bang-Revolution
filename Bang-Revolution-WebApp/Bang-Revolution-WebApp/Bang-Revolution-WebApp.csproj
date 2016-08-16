@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bang_Revolution_WebApp</RootNamespace>
     <AssemblyName>Bang-Revolution-WebApp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,10 +83,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -166,9 +163,9 @@
       <Project>{dedb2741-4239-412f-8c91-b5d10aee424c}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserData\UserData.csproj">
+    <ProjectReference Include="..\UserData\Entity.csproj">
       <Project>{91bf696d-13e1-4f2f-8354-86894b5905c4}</Project>
-      <Name>UserData</Name>
+      <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
