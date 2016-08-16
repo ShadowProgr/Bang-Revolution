@@ -39,12 +39,14 @@ namespace Gameplay
             BasicOperations.drawFromAnother(player, actor, c);
         }
 
-        public static void SkillID6(Player player, List<Card> currentCard, List<Card> removeCard) 
+        //return true for checking right
+        public static bool SkillID6(Player player, List<Card> currentCard, List<Card> removeCard) 
         {
             if (BasicOperations.checkCard(removeCard, currentCard).suit == 3)
             {
-                //missed
+                return true;
             }
+            return false;
         }
 
         public static Card SkillID7(Player player, List<Card> currentCard, List<Card> removeCard)

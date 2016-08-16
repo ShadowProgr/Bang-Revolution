@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
-using UserData;
+using Entity;
 
 namespace DAL
 {
@@ -182,6 +182,80 @@ namespace DAL
                 }
             }
             return ud;
+        }
+
+        public List<Character> getCharbyUserID(int userID)
+        {
+            List<Character> character = new List<Character>();
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("SELECT * FROM CharacterPuchase CP join Characters C on CP.[Char ID] = C.ID WHERE CP.[User ID] = @id", con);
+                com.Parameters.AddWithValue("@id", userID);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Character c = new Character()
+                    {
+                        id = (int)reader["ID"],
+                        desc = reader["[Desc]"].ToString(),
+                        img = reader["Img"].ToString(),
+                        name = reader["Name"].ToString(),
+                        hp = (int)reader["HP"],
+                        price = (float)reader["Price"],
+                        skillID = (int)reader["SkillID"]
+                    };
+                    character.Add(c);
+                }
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+            return character;
+        }
+
+        public List<Item> getItembyUserID(int userID)
+        {
+            List<Item> items = new List<Item>();
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("SELECT * FROM ItemPuchase IP join Items I on IP.[Item ID] = I.ID WHERE IP.[User ID] = @id", con);
+                com.Parameters.AddWithValue("@id", userID);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Item i = new Item()
+                    {
+                        id = (int)reader["ID"],
+                        img = reader["Img"].ToString(),
+                        name = reader["Name"].ToString(),
+                        price = (float)reader["Price"],
+                        isBackground = (bool)reader["isBg"]
+                    };
+                    items.Add(i);
+                }
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+            return items;
         }
     }
 }
