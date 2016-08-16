@@ -11,7 +11,7 @@ namespace Gameplay
     {
         public static void SkillID1(Player player, List<Card> currentCard)
         {
-            if (player.ownCard.Count == 0)
+            if (player.cardsOnHand.Count == 0)
             {
                 BasicOperations.drawCard(player, currentCard);
             }
@@ -35,7 +35,7 @@ namespace Gameplay
 
         public static void SkillID5(Player player, Player actor)
         {
-            Card c = BasicOperations.sendPickCardRequest(player, actor.ownCard);
+            Card c = BasicOperations.sendPickCardRequest(player, actor.cardsOnHand);
             BasicOperations.drawFromAnother(player, actor, c);
         }
 
@@ -65,12 +65,12 @@ namespace Gameplay
 
         public static void SkillID9(Player player)
         {
-            player.hasBang = false;
+            player.usedBang = false;
         }
 
         public static void SkillID010(Player player, Player receiver)
         {
-            Card c = BasicOperations.sendPickCardRequest(player, receiver.ownCard);
+            Card c = BasicOperations.sendPickCardRequest(player, receiver.cardsOnHand);
             BasicOperations.drawFromAnother(player, receiver, c);
         }
 
@@ -82,7 +82,7 @@ namespace Gameplay
         public static void SkillID12(Player player, List<Card> currentCard)
         {
             BasicOperations.showCard(currentCard[0]);
-            player.ownCard.Add(currentCard[0]);
+            player.cardsOnHand.Add(currentCard[0]);
             if (currentCard[0].suit == 3 || currentCard[0].suit == 2)
             {
                 currentCard.RemoveAt(0);
@@ -116,8 +116,8 @@ namespace Gameplay
         {
             if (player.currentHP < player.maxHP)
             {
-                BasicOperations.removeCard(removeCard, player, BasicOperations.sendPickCardRequest(player, player.ownCard));
-                BasicOperations.removeCard(removeCard, player, BasicOperations.sendPickCardRequest(player, player.ownCard));
+                BasicOperations.removeCard(removeCard, player, BasicOperations.sendPickCardRequest(player, player.cardsOnHand));
+                BasicOperations.removeCard(removeCard, player, BasicOperations.sendPickCardRequest(player, player.cardsOnHand));
                 player.currentHP++;
             }
         }
