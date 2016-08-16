@@ -80,7 +80,7 @@ namespace DAL
             return roles;
         }
 
-        public List<Character> getChars(int userID)
+        public List<Character> getCharbyUserID(int userID)
         {
             List<Character> character = new List<Character>();
             try
@@ -118,7 +118,43 @@ namespace DAL
             return character;
         }
 
-        public List<Card> getCards()
+        public List<Item> getItembyUserID(int userID)
+        {
+            List<Item> items = new List<Item>();
+            try
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("SELECT * FROM ItemPuchase IP join Items I on IP.[Item ID] = I.ID WHERE IP.[User ID] = @id", con);
+                com.Parameters.AddWithValue("@id", userID);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Item i = new Item()
+                    {
+                        id = (int)reader["ID"],
+                        img = reader["Img"].ToString(),
+                        name = reader["Name"].ToString(),
+                        price = (float)reader["Price"],
+                        isBackground = (bool) reader["isBg"]
+                    };
+                    items.Add(i);
+                }
+            }
+            catch (SqlException se)
+            {
+                Console.WriteLine(se.Message);
+            }
+            finally
+            {
+                if (con.State != System.Data.ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+            return items;
+        }
+
+        public List<Card> getCard()
         {
             List<Card> card = new List<Card>();
             try
