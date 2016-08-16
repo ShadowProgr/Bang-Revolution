@@ -5,8 +5,9 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Bang_Revolution_WebApp;
+using DAL;
 
-namespace ConsoleApplication1
+namespace MainServer
 {
     class Program
     {
@@ -60,6 +61,7 @@ namespace ConsoleApplication1
             {
                 try
                 {
+                    ConnectToDB con = new ConnectToDB();
                     requestCount = requestCount + 1;
                     NetworkStream networkStream = clientSocket.GetStream();
                     networkStream.Read(bytesFrom, 0, bytesFrom.Length);
@@ -69,9 +71,13 @@ namespace ConsoleApplication1
                     ms.Seek(0, SeekOrigin.Begin);
                     Object obj = (Object) bf.Deserialize(ms);
                     User user = (User)obj;
-                    if (user.name == 'admin')
+                    if (con.checkLogin(user.name, user.pass) == true)
                     {
-                        serverResponse = "You have login successfully";
+                        serverResponse = "Success";
+                        sendBytes = Encoding.ASCII.GetBytes(serverResponse);
+                    } else
+                    {
+                        serverResponse = "Fail";
                         sendBytes = Encoding.ASCII.GetBytes(serverResponse);
                     }
                     networkStream.Write(sendBytes, 0, sendBytes.Length);
