@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF380AD0-6B6D-49CA-BEB3-4C9A9B66D0C9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bang_Revolution_Client</RootNamespace>
+    <AssemblyName>Bang-Revolution-Client</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bang-Revolution-WinApp\Entity\Entity.csproj">
+      <Project>{f6008cc8-3fc8-49d5-9ae9-221586b5a840}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Characters\Bart Cassidy.png" />
+    <EmbeddedResource Include="Resources\Characters\Black Jack.png" />
+    <EmbeddedResource Include="Resources\Characters\Calamity Janet.png" />
+    <EmbeddedResource Include="Resources\Characters\El Gringo.png" />
+    <EmbeddedResource Include="Resources\Characters\Jesse Jones.png" />
+    <EmbeddedResource Include="Resources\Characters\Jourdonnais.png" />
+    <EmbeddedResource Include="Resources\Characters\Kit Carlson.png" />
+    <EmbeddedResource Include="Resources\Characters\Lucky Duke.png" />
+    <EmbeddedResource Include="Resources\Characters\Paul Regret.png" />
+    <EmbeddedResource Include="Resources\Characters\Pedro Ramirez.png" />
+    <EmbeddedResource Include="Resources\Characters\Rose Doolan.png" />
+    <EmbeddedResource Include="Resources\Characters\Sid Ketchum.png" />
+    <EmbeddedResource Include="Resources\Characters\Slab the Killer.png" />
+    <EmbeddedResource Include="Resources\Characters\Suzy Lafayette.png" />
+    <EmbeddedResource Include="Resources\Characters\Vulture Sam.png" />
+    <EmbeddedResource Include="Resources\Characters\Willy the Kid.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Barrel S12.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Barrel S13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Dynamite H2.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail H4.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail S10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail S11.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Mustang H8.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Mustang H9.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Remington C13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Rev. Carabine C1.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield C11.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield C12.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield S13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Scope S1.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Volcanic C10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Volcanic S10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Winchester S8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang S1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou H13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel C8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel D12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel S11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Gatling H10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\General Store C9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\General Store S12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Indians D1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Indians D13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic D8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Saloon H5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Stagecoach S9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Wells Fargo H3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
