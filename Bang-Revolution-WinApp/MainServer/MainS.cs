@@ -7,10 +7,11 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Entity;
 using DAL;
+using System.Diagnostics;
 
 namespace MainServer
 {
-    class Program
+    class MainS
     {
         public static Hashtable clientsList = new Hashtable();
         public static ConnectToDB con = new ConnectToDB();
@@ -20,7 +21,7 @@ namespace MainServer
             TcpClient clientSocket = default(TcpClient);
             int counter = 0;
             serverSocket.Start();
-            Console.WriteLine("Chat Server Started ....");
+            Console.WriteLine("Main Server Started ....");
             counter = 0;
             while ((true))
             {
@@ -113,7 +114,7 @@ namespace MainServer
                         User user = (User)obj;
                         Console.WriteLine(" >> " + user.name);
                         Console.WriteLine(" >> " + user.pass);
-                        if (Program.con.checkLogin(user.name, user.pass) == true)
+                        if (MainS.con.checkLogin(user.name, user.pass) == true)
                         {
                             serverResponse = "Accepted";
                             sendBytes = Encoding.ASCII.GetBytes(serverResponse);
@@ -127,6 +128,21 @@ namespace MainServer
                         networkStream.Write(sendBytes, 0, sendBytes.Length);
                         networkStream.Flush();
                         Console.WriteLine(" >> " + serverResponse);
+                    } else
+                        if (receiver.Contains("StartHost"))
+                    {
+                        var proc = new Process();
+                        proc.StartInfo.UseShellExecute = false;
+                        proc.StartInfo.FileName = "C:\\Users\\Tu\\Documents\\GitHub\\Bang-Revolution\\Bang-Revolution-WinApp\\GameServer\\bin\\Debug\\GameServer.exe";
+                        proc.Start();
+                        string send = "Host Started At Port 8889";
+                        sendBytes = Encoding.ASCII.GetBytes(send);
+                        networkStream.Write(sendBytes, 0, sendBytes.Length);
+                        networkStream.Flush();
+                        Console.WriteLine(" >> " + send);
+                        var exitCode = proc.ExitCode;
+                        proc.WaitForExit();
+                        proc.Close();
                     }
                     //Program.broadcast(dataFromClient, clNo, true);
                 }

@@ -29,9 +29,7 @@ namespace Clients
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            //Send data to server
-            
+        {     
             byte[] outStream = System.Text.Encoding.ASCII.GetBytes(txtChat.Text + "$");
             serverStream.Write(outStream, 0, outStream.Length);
             serverStream.Flush();

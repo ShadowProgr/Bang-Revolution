@@ -8,19 +8,19 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Entity;
 using DAL;
 
-namespace MainServer
+namespace GameServer
 {
-    class Program
+    public class GameS
     {
         public static Hashtable clientsList = new Hashtable();
         public static ConnectToDB con = new ConnectToDB();
         static void Main(string[] args)
         {
-            TcpListener serverSocket = new TcpListener(8888);
+            TcpListener serverSocket = new TcpListener(8889);
             TcpClient clientSocket = default(TcpClient);
             int counter = 0;
             serverSocket.Start();
-            Console.WriteLine("Chat Server Started ....");
+            Console.WriteLine("Game Server Started ....");
             counter = 0;
             while ((true))
             {
@@ -113,7 +113,7 @@ namespace MainServer
                         User user = (User)obj;
                         Console.WriteLine(" >> " + user.name);
                         Console.WriteLine(" >> " + user.pass);
-                        if (Program.con.checkLogin(user.name, user.pass) == true)
+                        if (GameS.con.checkLogin(user.name, user.pass) == true)
                         {
                             serverResponse = "Accepted";
                             sendBytes = Encoding.ASCII.GetBytes(serverResponse);
@@ -127,6 +127,11 @@ namespace MainServer
                         networkStream.Write(sendBytes, 0, sendBytes.Length);
                         networkStream.Flush();
                         Console.WriteLine(" >> " + serverResponse);
+                    }
+                    else
+                        if (receiver.Contains("StartHost"))
+                    {
+
                     }
                     //Program.broadcast(dataFromClient, clNo, true);
                 }
