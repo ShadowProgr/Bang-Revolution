@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Entity
 {
-    [Serializable]
     public class User
     {
         public int id { get; set; }

@@ -43,24 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainS.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{9eafe8f2-2972-4961-9394-bb27e05bccd8}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\..\Bang-Revolution-WebApp\Bang-Revolution-WebApp\Bang-Revolution-WebApp.csproj">
+      <Project>{6c4cb791-79c0-46f0-bb37-2f1f0ffa00d0}</Project>
+      <Name>Bang-Revolution-WebApp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entity\Entity.csproj">
-      <Project>{f6008cc8-3fc8-49d5-9ae9-221586b5a840}</Project>
-      <Name>Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GameServer\GameServer.csproj">
-      <Project>{b3050c25-45ed-43b4-96c7-fb763caa417c}</Project>
-      <Name>GameServer</Name>
+    <ProjectReference Include="..\TestClass\TestClass.csproj">
+      <Project>{3f24652d-e35d-43a1-81d4-3fb5399cfb7d}</Project>
+      <Name>TestClass</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

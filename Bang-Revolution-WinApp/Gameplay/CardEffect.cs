@@ -12,7 +12,7 @@ namespace Gameplay
         //volcanic
         public static void CE01(Player player)
         {
-            player.usedBang = true;
+            player.hasBang = true;
         }
 
         //gun 2
@@ -96,7 +96,7 @@ namespace Gameplay
             }
             else
             {
-                c = BasicOperations.sendPickCardRequest(actor, victim.cardsOnHand);
+                c = BasicOperations.sendPickCardRequest(actor, victim.ownCard);
             }
             BasicOperations.drawFromAnother(actor, victim, c);
         }
@@ -112,7 +112,7 @@ namespace Gameplay
             }
             else
             {
-                c = BasicOperations.sendPickCardRequest(actor, victim.cardsOnHand);
+                c = BasicOperations.sendPickCardRequest(actor, victim.ownCard);
             }
             BasicOperations.removeCard(removeCard, victim, c);
         }
@@ -173,7 +173,7 @@ namespace Gameplay
             foreach (Player p in player)
             {
                 Card c = BasicOperations.sendPickCardRequest(p, card);
-                p.cardsOnHand.Add(c);
+                p.ownCard.Add(c);
                 card.Remove(c);
             }
         }
