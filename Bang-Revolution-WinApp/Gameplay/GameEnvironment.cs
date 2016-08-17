@@ -30,7 +30,7 @@ namespace Gameplay
         {
             ConnectToDB dbAccess = new ConnectToDB();
             roles = dbAccess.getRoles();
-            deck = dbAccess.getCards();
+            deck = dbAccess.getCard();
             deck = BasicOperations.shuffleCards(deck);
         }
 
@@ -126,7 +126,7 @@ namespace Gameplay
                 }
             }
             ConnectToDB dbAccess = new ConnectToDB();
-            List<Character> ownedChars = dbAccess.getChars(user.id);
+            List<Character> ownedChars = dbAccess.getCharbyUserID(user.id);
             player.character = ownedChars.ElementAt(0);
             player.maxHP = player.character.hp;
             player.currentHP = player.maxHP; // Hard code, needs change
