@@ -117,7 +117,7 @@ namespace Gameplay
             return c;
         }
 
-        public static Player sendPickPlayerRequest(Player player, List<Player> playersInRange)
+        public static Player sendPickPlayerRequet(Player player, List<Player> playersInRange)
         {
             Player p = new Player();
             //send request to player to choose a player in playersInRange
