@@ -96,52 +96,101 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bart Cassidy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Black Jack.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Calamity Janet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\El Gringo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Jesse Jones.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Jourdonnais.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kit Carlson.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Lucky Duke.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Paul Regret.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Pedro Ramirez.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rose Doolan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sid  Ketchum.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Slab the Killer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Suzy Lafayette.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Vulture Sam.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Willy the Kid.png" />
+    <EmbeddedResource Include="Resources\Characters\Bart Cassidy.png" />
+    <EmbeddedResource Include="Resources\Characters\Black Jack.png" />
+    <EmbeddedResource Include="Resources\Characters\Calamity Janet.png" />
+    <EmbeddedResource Include="Resources\Characters\El Gringo.png" />
+    <EmbeddedResource Include="Resources\Characters\Jesse Jones.png" />
+    <EmbeddedResource Include="Resources\Characters\Jourdonnais.png" />
+    <EmbeddedResource Include="Resources\Characters\Kit Carlson.png" />
+    <EmbeddedResource Include="Resources\Characters\Lucky Duke.png" />
+    <EmbeddedResource Include="Resources\Characters\Paul Regret.png" />
+    <EmbeddedResource Include="Resources\Characters\Pedro Ramirez.png" />
+    <EmbeddedResource Include="Resources\Characters\Rose Doolan.png" />
+    <EmbeddedResource Include="Resources\Characters\Sid Ketchum.png" />
+    <EmbeddedResource Include="Resources\Characters\Slab the Killer.png" />
+    <EmbeddedResource Include="Resources\Characters\Suzy Lafayette.png" />
+    <EmbeddedResource Include="Resources\Characters\Vulture Sam.png" />
+    <EmbeddedResource Include="Resources\Characters\Willy the Kid.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Barrel S12.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Barrel S13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Dynamite H2.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail H4.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail S10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Jail S11.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Mustang H8.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Mustang H9.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Remington C13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Rev. Carabine C1.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield C11.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield C12.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Schofield S13.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Scope S1.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Volcanic C10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Volcanic S10.png" />
+    <EmbeddedResource Include="Resources\Equippable Cards\Winchester S8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang C9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang D9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang H13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Bang S1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Beer H9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou D9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Cat Balou H13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel C8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel D12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Duel S11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Gatling H10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\General Store C9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\General Store S12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Indians D1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Indians D13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C10.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed C13.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S2.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S3.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S4.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S6.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S7.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Missed S8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic D8.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H1.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H11.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Panic H12.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Saloon H5.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Stagecoach S9.png" />
+    <EmbeddedResource Include="Resources\Playable Cards\Wells Fargo H3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,6 +15,7 @@ namespace Entity
         public int maxHP { get; set; }
         public int range { get; set; }
         public int distance { get; set; }
+        public int scope { get; set; }
         public bool usedBang { get; set; }
     }
 }
