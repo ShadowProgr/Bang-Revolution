@@ -170,7 +170,7 @@ namespace DAL
                         img = reader["Img"].ToString(),
                         name = reader["Name"].ToString(),
                         effectID = (int) reader["EffectID"],
-                        range = (int)reader["Range"],
+                        rank = (int)reader["Rank"],
                         suit = (int) reader["Suit"]
                     };
                     card.Add(c);
